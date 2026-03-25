@@ -34,7 +34,12 @@
       margin-bottom: 24px;
     }
     .hero h1 { margin: 0 0 10px; font-size: clamp(28px, 4vw, 46px); line-height: 1.1; }
-    .hero p { margin: 0; color: var(--muted); line-height: 1.7; font-size: 18px; max-width: 950px; }
+   .hero {
+  width: fit-content;       /* khung ôm nội dung */
+  margin: 20px auto;        /* căn giữa */
+  padding: 16px 28px;       /* tạo khoảng cách trong */
+  border-radius: 20px;
+}
     .layout { display: grid; grid-template-columns: 380px 1fr; gap: 24px; }
     .panel, .box {
       background: var(--card);
@@ -298,7 +303,9 @@
       return `
         <div class="result-card">
           <div class="tag">${item.years} năm</div>
-          <div class="big">${formatCurrency(item.monthlyContribution)}/  <span style="font-size: 0.7em;">tháng</span> </div>
+          <div class="big">${formatCurrency(item.monthlyContribution)} <span style="font-size: 0.65em; white-space: nowrap;">
+    /tháng
+  </span> </div>
           <div class="mini-list">
             <div class="mini-item"><span>Cần góp trong</span><strong>${formatNumber(item.months)} tháng</strong></div>
             <div class="mini-item"><span>Tổng tiền tự bỏ vào</span><strong>${formatCurrency(item.totalContributed)}</strong></div>
