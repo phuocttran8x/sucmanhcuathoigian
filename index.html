@@ -735,22 +735,7 @@
       const monthlyGap = Math.max(shortest.monthlyContribution - longest.monthlyContribution, 0);
       const percentLess = shortest.monthlyContribution > 0 ? (monthlyGap / shortest.monthlyContribution) * 100 : 0;
 
-      document.getElementById('story').innerHTML = `
-        <strong>Kết luận trực quan:</strong><br>
-        Với mục tiêu <strong>${formatCurrency(target)}</strong>, lãi suất <strong>${annualRate}%/năm</strong> và vốn ban đầu <strong>${formatCurrency(initial)}</strong>,
-        nếu kéo dài thời gian từ <strong>${shortest.years} năm</strong> lên <strong>${longest.years} năm</strong>,
-        số tiền cần góp mỗi tháng giảm khoảng <strong>${formatCurrency(monthlyGap)}</strong>, tương đương <strong>${percentLess.toFixed(1)}%</strong>.
-        Đây là điểm mạnh nhất của lãi suất kép: cho thời gian làm việc thay cho áp lực góp tiền hằng tháng.
-      `;
-
-      document.getElementById('compare').innerHTML = `
-        <strong>Tại sao khác nhau?</strong><br>
-        Mốc <strong>${plans[0].years} năm</strong>: cần góp <strong>${formatCurrency(plans[0].monthlyContribution)}/tháng</strong>.<br>
-        Mốc <strong>${plans[1].years} năm</strong>: cần góp <strong>${formatCurrency(plans[1].monthlyContribution)}/tháng</strong>.<br>
-        Mốc <strong>${plans[2].years} năm</strong>: cần góp <strong>${formatCurrency(plans[2].monthlyContribution)}/tháng</strong>.<br><br>
-        Bạn bắt đầu càng sớm thì tiền càng có nhiều thời gian để sinh lãi, và lãi lại tiếp tục sinh lãi. Vì vậy thời gian dài hơn thường giảm áp lực góp tiền rất mạnh.
-      `;
-
+     
       document.getElementById('tableBody').innerHTML = plans.map(p => `
         <tr>
           <td><strong>${p.years} năm</strong></td>
